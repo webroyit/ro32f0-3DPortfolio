@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
 import { ScrollControls, Scroll } from "@react-three/drei";
+import { Interface } from "./components/Interface";
 
 function App() {
   return (
@@ -9,9 +10,7 @@ function App() {
       <ScrollControls pages={4} damping={0.1}>
         <Experience />
         <Scroll html>
-          <h1 className="text-3xl">
-            Welcome
-          </h1>
+          <Interface />
         </Scroll>
       </ScrollControls>
     </Canvas>
