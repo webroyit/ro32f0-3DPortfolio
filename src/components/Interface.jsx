@@ -45,14 +45,40 @@ const AboutSection = () => {
                 <br />
                 <span className="bg-white px-1 italic">Webroyit</span>
             </h1>
-            <p className="text-lg text-gray-600 mt-4">
+            <motion.p className="text-lg text-gray-600 mt-4"
+                initial={{
+                    opacity: 0,     // Hide the text at the start
+                    y: 25,
+                }}
+                whileInView={{
+                    opacity: 1,
+                    y: 0,
+                }}
+                transition={{
+                    duration: 1,
+                    delay: 1.5
+                }}
+            >
                 I make cool website
                 <br />
                 and more cool website
-            </p>
-            <button className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16">
+            </motion.p>
+            <motion.button className="bg-indigo-600 text-white py-4 px-8 rounded-lg font-bold text-lg mt-16"
+                initial={{
+                    opacity: 0,     // Hide the text at the start
+                    y: 25,
+                }}
+                whileInView={{
+                    opacity: 1,
+                    y: 0,
+                }}
+                transition={{
+                    duration: 1,
+                    delay: 2.5
+                }}
+            >
                 Contact Me
-            </button>
+            </motion.button>
         </Section>
     );
 };
@@ -103,11 +129,35 @@ const SkillsSection = () => {
                 <div className="mt-8 space-y-4">
                     {skills.map((skill, index) => (
                         <div className="w-64" key={index}>
-                            <h3 className="text-xl font-bold text-gray-800">{skill.title}</h3>
+                            <motion.h3 className="text-xl font-bold text-gray-800"
+                                initial={{
+                                    opacity: 0,     // Hide the text at the start
+                                }}
+                                whileInView={{
+                                    opacity: 1,
+                                }}
+                                transition={{
+                                    duration: 1,
+                                    delay: 1 + index * 0.2,
+                                }}
+                            >
+                                {skill.title}
+                            </motion.h3>
                             <div className="h-2 w-full bg-gray-200 rounded-full">
-                                <div
+                                <motion.div
                                     className="h-2 w-full bg-indigo-500 rounded-full"
                                     style={{ width: `${skill.level}%` }}
+                                    initial={{
+                                        scaleX: 0,
+                                        originX: 0,
+                                    }}
+                                    whileInView={{
+                                        scaleX: 1,
+                                    }}
+                                    transition={{
+                                        duration: 1,
+                                        delay: 1 + index * 0.2,
+                                    }}
                                 />
                             </div>
                         </div>
