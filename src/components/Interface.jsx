@@ -1,12 +1,27 @@
+import { motion } from "framer-motion";
+
 const Section = (props) => {
     const {children} = props;
 
     // max-w-screen to not make the screen too big
-    return (<section className={`
+    return (<motion.section className={`
         h-screen w-screen p-8 max-w-screen-2xl mx-auto flex flex-col items-start justif-center
-    `}>
+    `}
+        initial={{
+            opacity: 0,     // Hide the text at the start
+            y: 50,
+        }}
+        whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {       // For fade out effect
+                duration: 1,
+                delay: 0.6 
+            }
+        }}
+    >
         {children}
-    </section>)
+    </motion.section>)
 }
 
 export const Interface = () => {
