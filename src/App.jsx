@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
 import { ScrollControls, Scroll } from "@react-three/drei";
@@ -9,6 +9,11 @@ import { ScrollManager } from "./components/ScrollManager";
 function App() {
   const [section, setSection] = useState(0);
   const [menuOpened, setMenuOpened] = useState(false);
+
+  // Automatically close the menu
+  useEffect(() => {
+    setMenuOpened(false);
+  }, [section])
 
   return (
     <>
